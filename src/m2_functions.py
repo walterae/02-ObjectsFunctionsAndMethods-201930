@@ -18,8 +18,19 @@ Authors: David Mutchler, Vibha Alangar, Matt Boutell, Dave Fisher,
 ###############################################################################
 
 import rosegraphics as rg
+
 def main():
-    print(pythagorean(4,5))
+    run_test_pythagorean()
+    run_test_twoturtles()
+
+def run_test_pythagorean():
+    answer =pythagorean(3, 4)
+    print(answer)
+
+def run_test_twoturtles():
+    #twoturtles('blue', 10)
+    twoturtles('red', 1)
+
     """
     TESTS the functions that you will write below.
     You write the tests per the _TODO_s below.
@@ -44,7 +55,7 @@ def pythagorean(a,b):
     return (a**2+b**2)**(1/2)
 
 ###############################################################################
-# TODO: 4a.  Define a function immediately below this _TODO_.
+# DONE: 4a.  Define a function immediately below this _TODO_.
 #   It takes two arguments:
 #     -- a string that represents a color (e.g. 'red')
 #     -- a positive integer that represents the thickness of a Pen.
@@ -66,19 +77,23 @@ def pythagorean(a,b):
 #
 #   You may name the function and its parameters whatever you wish.
 #
-# TODO: 4b.  In main, CALL your function at least TWICE (with different values
+# DONE: 4b.  In main, CALL your function at least TWICE (with different values
 #   for the arguments) to test whether you defined the function correctly.
 #
 ###############################################################################
-def Pen2(color,thickness):
-    window=rg.TurtleWindow
-    jack=rg.SimpleTurtle
-    jack.pen('green',)
-    jill=rg.SimpleTurtle
+def twoturtles(color,thickness):
+    window = rg.TurtleWindow()
+    jack = rg.SimpleTurtle()
+    jack.pen = rg.Pen('green',thickness)
+    jill = rg.SimpleTurtle()
+    jill.pen = rg.Pen(color,5)
+    jack.forward(100)
+    jill.backward(100)
+    window.close_on_mouse_click()
 
 
 ###############################################################################
-# TODO: 5.
+# DONE: 5.
 #   COMMIT-and-PUSH your work (after changing this TO-DO to DONE).
 #
 #   As a reminder, here is how you should do so:
